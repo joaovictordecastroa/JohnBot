@@ -9,7 +9,7 @@ const controllers = require('../controllers');
 
 /* GET information of repository listing. */
 router.get('/repositories/:username', async function(req, res, next) {
-    res.send(JSON.stringify((await controllers.repositoryOrdenation(req.params.username))[0]));
+    res.send(JSON.stringify((await controllers.repositoryOrdenation(req.params.username))));
 });
 
 module.exports = router;
