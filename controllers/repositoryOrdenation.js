@@ -1,4 +1,5 @@
 const models = require('../models');
+const formatDate = require('../models/date');
 
 
 async function repositoryData(username) {
@@ -9,8 +10,8 @@ async function repositoryData(username) {
          url: repository.html_url ? repository.html_url : "",
          description: repository.description ? repository.description: "Esse repositório não possui uma descrição",
          apiUrl: repository.url ? repository.url : "",
-         creationDate: repository.created_at ? repository.created_at : "",
-         lastModification: repository.updated_at ? repository.updated_at : "",
+         creationDate: repository.created_at ? formatDate(repository.created_at) : "",
+         lastModification: repository.updated_at ? formatDate(repository.updated_at) : "",
          language: repository.language ? repository.language : "",
          login: repository.owner.login ? repository.owner.login : "",
          gitCloneUrl: repository.clone_url,
