@@ -1,29 +1,21 @@
-const models = require('../models');
+const respositoryData = require('./repositoryData');
+const moment = require('moment');
 const formatDate = require('../models/date');
 
 
-async function repositoryData(username) {
-   const repositoryJSON = await models.getRepository(username);
-   const repositoryInfo = repositoryJSON.map(repository => {
-      return {
-         name: repository.name ? repository.name : "",
-         url: repository.html_url ? repository.html_url : "",
-         description: repository.description ? repository.description: "Esse repositório não possui uma descrição",
-         apiUrl: repository.url ? repository.url : "",
-         creationDate: repository.created_at ? formatDate(repository.created_at) : "",
-         lastModification: repository.updated_at ? formatDate(repository.updated_at) : "",
-         language: repository.language ? repository.language : "",
-         login: repository.owner.login ? repository.owner.login : "",
-         gitCloneUrl: repository.clone_url,
-         size: repository.size ? repository.size : 0,
-         watchers_count: repository.watchers_count ? repository.watchers_count : 0,
-         topics: repository.topics ? repository.topics : [""]
-      }
-   });
-   return repositoryInfo;
+
+async function repositoryOrdenation(username) {
+    const data = await respositoryData(username);
+    let ordenatedData = data.sort(function (actualElement, nextElement) {
+        return new Date(actualElement.creationDate) - new Date(nextElement.creationDate);
+    });
+    ordenatedData =  ordenatedData.map(repository => {
+        repository.creationDate = formatDate(repository.creationDate);
+        return repository;
+    });
+    return ordenatedData.filter(function(repository){
+        return repository.language == "C#";
+    });
 }
 
-
-module.exports = repositoryData;
-
-
+module.exports = repositoryOrdenation;

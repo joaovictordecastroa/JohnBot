@@ -1,6 +1,7 @@
+const repositoryData = require('./repositoryData');
 const repositoryOrdenation = require('./repositoryOrdenation');
 
 
 module.exports = {
-    repositoryOrdenation
+    repositoryData, repositoryOrdenation
 }
