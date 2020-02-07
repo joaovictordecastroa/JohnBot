@@ -1,0 +1,27 @@
+{
+  "name": "johnbot",
+  "version": "1.0.0",
+  "description": "API de comunicação com a API pública do GitHub para utilização no bot da Take",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaovictordecastroa/JohnBot.git"
+  },
+  "author": "João Victor de Castro Alves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joaovictordecastroa/JohnBot/issues"
+  },
+  "homepage": "https://github.com/joaovictordecastroa/JohnBot#readme",
+  "devDependencies": {
+    "nodemon": "2.0.2"
+  },
+  "dependencies": {
+    "axios": "0.19.2",
+    "express": "4.17.1"
+  }
+}
