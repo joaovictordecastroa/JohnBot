@@ -4,7 +4,7 @@
  * @exports getRepository
  */
 
- const getRepository = require('./getRepositorys');
+ const getRepository = require('./getRepository');
 
 
  module.exports = {

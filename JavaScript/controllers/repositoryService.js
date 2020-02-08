@@ -1,23 +1,23 @@
 /**
  * @author - João Victor de Castro Alves
  * @description - Method that returns a JSON ordered by date in ascending order  
- * @exports repositoryRepositoryService
+ * @exports repositoryService
  * @requires moment
  * @requires formatDate
  */
 
-const respositoryData = require('../models/getRepositorys');
+const respositoryData = require('../models');
 const moment = require('moment');
 
 /**
  * @async
- * @function RepositoryService
+ * @function repositoryService
  * @param {String} username - username of GitHub repositories
  * @description - Method that returns a JSON ordered by date in ascending order  
  * @returns {JSON}
  */
-async function RepositoryService(username) {
-    const data = await respositoryData(username);
+async function repositoryService(username) {
+    const data = await respositoryData.getRepository(username);
     let ordenatedData = data.sort(function (actualElement, nextElement) {
         return new Date(actualElement.created_at) - new Date(nextElement.created_at);
     });
@@ -26,4 +26,4 @@ async function RepositoryService(username) {
     });
 }
 
-module.exports = RepositoryService;
+module.exports = repositoryService;
