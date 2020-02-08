@@ -8,7 +8,7 @@ const router = express.Router();
 const controllers = require('../controllers');
 
 /* GET information of repository listing. */
-router.get('/repositories/:username', async function(req, res, next) {
+router.get('/repositories', async function(req, res, next) {
     res.send((JSON.stringify(await controllers.repositoryOrdenation("takenet"))));
 });
 
