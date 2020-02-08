@@ -16,7 +16,7 @@ const controllers = require('../controllers');
  * @returns {JSON}
  */
 router.get('/repositories', async function(req, res, next) {
-    const repo = await controllers.repositoryOrdenation("takenet");
+    const repo = await controllers.RepositoryService("takenet");
     res.send({
         1: repo[0],
         2: repo[1],

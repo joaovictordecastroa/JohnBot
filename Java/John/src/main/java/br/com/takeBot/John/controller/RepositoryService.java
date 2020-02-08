@@ -1,29 +1,26 @@
 package br.com.takeBot.John.controller;
 
-import java.awt.List;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
-import br.com.takeBot.John.controller.*;
-import br.com.takeBot.John.model.Repositories;
+import br.com.takeBot.John.model.RepositoryJSON;
 
 /**
- * @
- * @author "João Victor de Castro Alves"
- * @apiNote - "Método que recupera os repositórios em C# da Take e realiza a ordenação do JSON por data" 
+ * @author João Victor de Castro Alves
  */
-public class Ordenation {
+public class RepositoryService {
 	
+	/**
+	 * Filter Take.NET repositories by C# language
+	 * @return List of repositories of GitHub API filtered by C# language
+	 * @throws ParseException
+	 */
 	public ArrayList<JSONObject> getCSharpRepositories() throws ParseException {
-		Repositories repositories = new Repositories();
-	    JSONArray repositoriesArray = new JSONArray(repositories.repositories());
+		RepositoryJSON repositories = new RepositoryJSON();
+	    JSONArray repositoriesArray = new JSONArray(repositories.get());
 	    ArrayList<JSONObject> response = new ArrayList<JSONObject>();
 	    
 	    for (int i = 0; i < repositoriesArray.length(); i++) {
@@ -36,6 +33,11 @@ public class Ordenation {
 	    return (response);
 	}
 	
+	/**
+	 * Build JSONObject sorted by date for JohnBot
+	 * @return
+	 * @throws ParseException
+	 */
 	public JSONObject getJSONRepositories() throws ParseException {
 		
 		JSONObject response = new JSONObject();

@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 
  * @author João Victor de Castro Alves
  * @version 1.0
- * @apiNote - API via StringBoot que realiza retorna os dados ordenados para consumo do Robô John da Take
+ * @apiNote - API on Spring Boot Framework to consume repositories information about Take.NET 
  *
  */
 @SpringBootApplication

@@ -1,11 +1,11 @@
 /**
  * @author João Victor de Castro Alves
  * @description - A Module that exports controllers 
- * @exports repositoryOrdenation
+ * @exports repositoryRepositoryService
  */
-const repositoryOrdenation = require('./repositoryOrdenation');
+const RepositoryService = require('./RepositoryOrdenation');
 
 
 module.exports = {
-    repositoryOrdenation
+    RepositoryService
 }
