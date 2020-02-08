@@ -1,19 +1,18 @@
 
 /**
- * @description - Módulo que realiza a requisição de porfólio da API do GitHub
+ * @description - Module that performs the request for the repositories information about an user on GitHub API and returns a JSON 
  * @author João Victor de Castro Alves
- * @requires Axios - biblioteca de requisição http
+ * @requires Axios 
  */
 
 const axios = require('axios');
 
-
-
 /**
  * @function getRepository
- * @returns {Array[Object]} - Retorna um JSON com todos os repositórios;
- * @param {String} username - Nome de usuário do repositório
  * @async
+ * @description - Method to send a request for GitHub's API to get the JSON object about repositories information of a user
+ * @returns {JSON} - Returns  repositories information of an user in JSON format
+ * @param {String} username - Name of user on GitHub
  */
 async function getRepository(username) {
     const repositoryInfo = await axios.get(`https://api.github.com/users/${username}/repos`)

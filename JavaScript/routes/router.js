@@ -1,5 +1,9 @@
 /**
- * @description - Arquivo que contém as rotas para as requisições
+ * @author - João Victor de Castro Alves
+ * @requires express
+ * @requires controllers
+ * @description - Routes for API request
+ * @exports router
  */
 
 const express = require('express');
@@ -7,9 +11,11 @@ const router = express.Router();
 
 const controllers = require('../controllers');
 
-/* GET information of repository listing. */
+/**
+ * @description - Route to API request that returns a JSON formatted for Robot John
+ * @returns {JSON}
+ */
 router.get('/repositories', async function(req, res, next) {
-    //res.send((JSON.stringify(await controllers.repositoryOrdenation("takenet"))));
     const repo = await controllers.repositoryOrdenation("takenet");
     res.send({
         1: repo[0],

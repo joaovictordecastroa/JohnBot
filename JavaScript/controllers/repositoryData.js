@@ -1,6 +1,18 @@
+/**
+ * @author - João Victor de Castro Alves
+ * @exports repositoryData
+ * @requires models
+ * @description - Building a JSON with relevant information from the GitHub repositories
+ */
 const models = require('../models');
 
-
+/**
+ * @async
+ * @function repositoryData
+ * @description - Building a JSON with relevant information from the GitHub repositories
+ * @param {String} username - username of GitHub repositories 
+ * @returns {JSON}
+ */
 async function repositoryData(username) {
    const repositoryJSON = await models.getRepository(username);
    try {
@@ -23,8 +35,7 @@ async function repositoryData(username) {
       });
       return repositoryInfo;
    } catch(error) {
-      console.log(error);
-      return;
+      return(error);
    }
 }
 
