@@ -6,6 +6,7 @@ import java.net.*;
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -25,6 +26,8 @@ public class Main {
 	
 	@RequestMapping("/")
 	@ResponseBody 	
-	public void get() {
+	public String get() throws ParseException {
+		Ordenation repositories = new Ordenation();
+		return repositories.getJSONRepositories().toString();
 	}
 }

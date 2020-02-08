@@ -6,7 +6,7 @@
  * @requires formatDate
  */
 
-const respositoryData = require('./repositoryData');
+const respositoryData = require('../models/getRepositorys');
 const moment = require('moment');
 const formatDate = require('../models/date');
 
